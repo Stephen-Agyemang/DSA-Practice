@@ -11,6 +11,4 @@ class Solution:
                 second = num
             else:
                 return True
-
         return False
-        
