@@ -1,19 +1,19 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        hashmap = {}
-        n = len(nums)
-
+        hashMap = {}
+        max_count = 0
+        maj_element = 0
         
         for num in nums:
-            if num in hashmap:
-                hashmap[num] += 1
+            if num in hashMap:
+                hashMap[num] += 1
             
             else:
-               hashmap[num] = 1
+                hashMap[num] = 1
+
+            if hashMap[num] > max_count:
+                max_count = hashMap[num]
+                maj_element = num
         
-        for key in hashmap:
-            if hashmap[key] > n/2:
-                return key
-        
-        return null 
+        return maj_element
         
