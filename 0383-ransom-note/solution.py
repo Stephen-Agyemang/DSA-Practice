@@ -1,44 +1,26 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        '''
-        Understanding: * We have two strings return boolean(True or False) after method.
-                       * ransomNote and magazine -> See if ransomNote can be constructed from magazine, return True if it can and False if it cannot
-                       * Each letter magazine can be used once in RansomNote.
-                       * maagazine can be an empty string
         
-        Planning: * Check if magazine is empty. We just return False
-                  * Put all the characters in magazine.
-                  * We check it against ransomNote and if that particular character is in the dictionary that we created from magazine we decrease that particular key's value
-                  * We would check all the values of the keys in the dictionary and return False if even one key has a value that is greater than 0.
-                  *return True
-
-                
-        Implementation:
-'''
-
-        if not magazine:
+        if len(ransomNote) > len(magazine):
             return False
 
-        dct = {}
+        dct = {} 
 
-        for char in magazine:
-            if char not in dct:
-                dct[char] = 1
+        for letter in magazine:
+            if letter not in dct:
+                dct[letter] = 1
+
             else:
-                dct[char] += 1
+                dct[letter] += 1
         
-        for char in ransomNote:
-            if char not in dct:
+        for letter in ransomNote:
+
+            if letter not in dct or dct[letter] == 0:
                 return False
 
-            dct[char] -= 1
-
-            if dct[char] < 0:
-                return False
+            else:
+                dct[letter] -= 1
 
         return True
+            
 
-            
-                
-            
-        
