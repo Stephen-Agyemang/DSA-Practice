@@ -7,24 +7,36 @@ class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
 
 
-        if not head:
-            return None
+        if not head or not head.next:
+            return True 
 
-        stack = []
-        current_node = head
+        fast = head
+        slow = head
 
-        while current_node:
-            stack.append(current_node.val)
-            current_node = current_node.next
+        while fast.next and fast.next.next:
 
-        right = len(stack) - 1
-        left = 0
-        while left < right:
+            fast = fast.next.next
+            slow = slow.next
+        
+        prev_slow = None
+        curr_slow = slow.next  
 
-            if stack[left] != stack[right]:
+        while curr_slow:
+            curr_next = curr_slow.next
+            curr_slow.next = prev_slow
+
+            prev_slow = curr_slow
+            curr_slow = curr_next
+
+        right = prev_slow
+        left = head
+
+        while right:
+
+            if right.val != left.val:
                 return False
-            right -= 1
-            left += 1
+            right = right.next
+            left = left.next
 
         return True 
 
