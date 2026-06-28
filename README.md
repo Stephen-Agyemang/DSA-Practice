@@ -1,2 +1,2 @@
 # DSA-Practice
-Showcasing my technical-problem journey
+This repository documents my LeetCode submissions.
