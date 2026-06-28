@@ -8,10 +8,10 @@ Welcome to my dedicated space for mastering data structures, algorithms, and tec
 
 | Difficulty | Solved | Target | Status |
 | :--- | :---: | :---: | :---: |
-| 🟢 Easy | 0 | 100 | 🏃‍♂️ In Progress |
-| 🟡 Medium | 0 | 150 | 🎯 Target |
+| 🟢 Easy | 55 | 100 | 🏃‍♂️ In Progress |
+| 🟡 Medium | 15 | 150 | 🎯 Target |
 | 🔴 Hard | 0 | 50 | ⚡ Future Goal |
-| **Total** | **0** | **300** | — |
+| **Total** | **70** | **300** | — |
 
 > *Note: These stats are updated regularly as I progress through my curated practice tracks.*
 
