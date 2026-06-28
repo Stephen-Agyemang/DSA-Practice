@@ -1,2 +1,2 @@
 # DSA-Practice
-Showcasing my technical-problem journey
+Showcasing my technical-problem-solving journey
