@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Sync
-        uses: joshcai/leetcode-sync@v1.7
+        uses: fausto-bustos/leetcode-sync@v2.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
