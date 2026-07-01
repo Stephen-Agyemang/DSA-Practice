@@ -11,7 +11,7 @@ Welcome to my dedicated space for mastering data structures, algorithms, and tec
 | 🟢 Easy | 55 | 100 | 🏃‍♂️ In Progress |
 | 🟡 Medium | 15 | 150 | 🎯 Target |
 | 🔴 Hard | 0 | 50 | ⚡ Future Goal |
-| **Total** | **70** | **300** | 23% |
+| **Total** | **73** | **300** | 23% |
 
 > *Note: These stats are updated regularly as I progress through my curated practice tracks.*
 
