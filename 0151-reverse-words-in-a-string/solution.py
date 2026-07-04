@@ -1,14 +1,16 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         
-        s = s.split()
-        left, right = 0, len(s) - 1
-        
-        while left < right:
-            s[left], s[right] = s[right], s[left]
-            left += 1
-            right -= 1
-        
-        return ' '.join(s)
-        
+        # string_stack = s.split()
+        # string_stack = string_stack[::-1]
+
+        # new_string = []
+        # right = len(string_stack) - 1
+
+        # while right >= 0:
+        #     new_string.append(string_stack.pop())
+        #     right -= 1
+
+        return " ".join(s.split()[::-1])
+
         
