@@ -1,22 +1,32 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        
-        s = ""        
-        left, right = 0, 0
-        
+   
+        if not chars:
+            return 0
 
-        while left < len(chars):
-            count = 0 
-            s += chars[left]
-            
-            while right < len(chars) and chars[right] == chars[left]: 
-                    count += 1
-                    right += 1
-            
-            left = right
-            
-            if count > 1:
-                s += str(count)            
+        char_counter = 0 
+        s = ""
 
+        for i in range(len(chars)):
+            char_counter += 1
+            
+            if (i + 1) == len(chars) or chars[i] != chars[i+1]:
+                s += chars[i]
+
+                if char_counter > 1:
+                    s += str(char_counter)
+                char_counter = 0
+      
         chars[:] = list(s)
+
         return len(chars)
+            
+            
+
+            
+        
+        
+                
+
+
+
