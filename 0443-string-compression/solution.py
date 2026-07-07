@@ -3,23 +3,34 @@ class Solution:
    
         if not chars:
             return 0
+        
+        
+        ## Using the sliding window / two-pointer approach for an O(1) space comlexity
+        left = 0
+        new_chars_len = 0
 
-        char_counter = 0 
-        s = ""
+        while left < len(chars):
+            right = left 
 
-        for i in range(len(chars)):
-            char_counter += 1
+            while right < len(chars) and chars[right] == chars[left]:
+                right += 1
+
+            count = right - left
+
+            chars[new_chars_len] = chars[left] 
+            new_chars_len += 1
+
+            if count > 1:
+                for digit in str(count):
+                    chars[new_chars_len] = digit
+                    new_chars_len += 1
             
-            if (i + 1) == len(chars) or chars[i] != chars[i+1]:
-                s += chars[i]
+            left = right
 
-                if char_counter > 1:
-                    s += str(char_counter)
-                char_counter = 0
-      
-        chars[:] = list(s)
+        return new_chars_len
 
-        return len(chars)
+        
+
             
             
 
