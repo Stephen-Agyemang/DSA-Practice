@@ -1,31 +1,22 @@
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
 
-        if not nums: 
-            return []
+        lst_ranges = []
 
-        start = end = nums[0]
-        result = []
+        left = 0
 
-        for num in nums[1:]: 
+        while left < len(nums):
+            right = left 
 
-            if num == end + 1:
-                end = num
-            
+            while right < len(nums) - 1 and nums[right+1] == nums[right] + 1:
+                right += 1
+
+            if nums[left] == nums[right]:
+                lst_ranges.append(str(nums[left]))
+
             else:
-                result.append(f"{start}" if start == end else f"{start}->{end}")
-                start = end = num
+                lst_ranges.append(f"{nums[left]}->{nums[right]}")
             
-        result.append(f"{start}" if start == end else f"{start}->{end}")
+            left = right + 1
 
-        return result
-             
-
-
-
-
-
-
-
-
-        
+        return lst_ranges
