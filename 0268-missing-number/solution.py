@@ -1,10 +1,10 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
 
-        # The XOR way 
+        n = len(nums) 
 
-        result = len(nums)
+        expected_sum = n * (n + 1) // 2
 
-        for i, num in enumerate(nums):
-            result ^= i ^ num
-        return result
+        actual_sum = sum(nums)
+
+        return expected_sum - actual_sum 
