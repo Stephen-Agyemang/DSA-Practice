@@ -5,17 +5,15 @@ class Solution:
         dct = {}
         result = []
 
-
         for i, num in enumerate(sorted_nums):
-
             if num not in dct:
-                dct[num] = i 
+                dct[num] = i
 
-            
         for num in nums:
             result.append(dct[num])
 
         return result
+        
 
                 
 
