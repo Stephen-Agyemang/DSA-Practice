@@ -1,11 +1,12 @@
 class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
-        
-        result = [] 
 
-        for first in range(n):
-            result.append(nums[first])
-            result.append(nums[first + n])
+        results = []
 
-        return result
-        
+        for i in range(n):
+            results.append(nums[i])
+            results.append(nums[i + n])
+
+        return results
+
+
