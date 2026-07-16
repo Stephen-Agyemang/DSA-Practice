@@ -1,24 +1,25 @@
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
 
-        hashMap = {} 
-        for num in nums:
-            if num in hashMap:
-                hashMap[num] += 1
-            else:
-                hashMap[num] = 1
-         
-        sorted_nums = sorted(hashMap.keys())
-        prefix = {}
-        running_sum = 0
+        sorted_nums = sorted(nums)
+        dct = {}
+        result = []
 
-        for num in sorted_nums:
-            prefix[num] = running_sum 
-            running_sum += hashMap[num]
-            print(running_sum)
 
-        result = [] 
+        for i, num in enumerate(sorted_nums):
+
+            if num not in dct:
+                dct[num] = i 
+
+            
         for num in nums:
-            result.append(prefix[num])
+            result.append(dct[num])
+
+        return result
+
                 
-        return result    
+
+
+        
+        
+
