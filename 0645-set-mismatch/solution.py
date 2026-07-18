@@ -1,24 +1,24 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
         
-        repeatedN = 0
-        seen = set()          
+        repeated_num = -1
 
         for num in nums:
-            if num in seen:
-                repeatedN = num
-            
+            idx = abs(num) - 1
+
+            if nums[idx] < 0:
+                repeated_num = abs(num)
+
             else:
-                seen.add(num)
-
-        n = len(nums)
-        total = n * (n + 1) // 2
-        missing = total - (sum(nums) - repeatedN)
-
-        return [repeatedN, missing]
+                nums[idx] *= - 1
 
 
+        missing_num = -1 
 
-        
-        
-        
+        for i in range(len(nums)):
+            if nums[i] > 0:
+                missing_num = i + 1
+
+        return [repeated_num, missing_num]
+
+    
