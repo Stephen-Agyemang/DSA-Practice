@@ -10,8 +10,6 @@ class Solution:
 
         nums1.sort()
         nums2.sort()
-        print(nums2)
-        print(nums1)
 
         while p1 < len(nums1) and p2 < len(nums2):
             if nums1[p1] != nums2[p2]:
@@ -27,7 +25,6 @@ class Solution:
                 p2 += 1
    
         return result
-
 
 
 
