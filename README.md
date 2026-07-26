@@ -8,8 +8,8 @@ Welcome to my dedicated space for mastering data structures, algorithms, and tec
 
 | Difficulty | Solved | Target | Status |
 | :--- | :---: | :---: | :---: |
-| 🟢 Easy | 55 | 100 | 🏃‍♂️ In Progress |
-| 🟡 Medium | 15 | 150 | 🎯 Target |
+| 🟢 Easy | 61 | 100 | 🏃‍♂️ In Progress |
+| 🟡 Medium | 18 | 150 | 🎯 Target |
 | 🔴 Hard | 0 | 50 | ⚡ Future Goal |
 | **Total** | **79** | **300** | 26% |
 
