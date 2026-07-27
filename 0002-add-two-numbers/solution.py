@@ -51,42 +51,40 @@ class Solution:
 
         # return newHead
 
-        dummy = ListNode(-1)
-        current = dummy
+        dummy = ListNode(-1) 
+        curr_node = dummy
 
         carry = 0 
 
         while l1 or l2 or carry:
 
             if l1:
-                val1 = l1.val 
-            else:
-                val1 = 0
+                val1 = l1.val
 
-            if l2:
-                val2 = l2.val
+            else: 
+                val1 = 0 
+
+            if l2: 
+                val2 = l2.val 
+
             else:
                 val2 = 0 
 
             total = val1 + val2 + carry
 
-            carry = total // 10
-            digit = total % 10
+            carry = total // 10 
+            digit  = total % 10 
 
-            current.next = ListNode(digit) 
-            current = current.next
+            curr_node.next = ListNode(digit) 
+            curr_node = curr_node.next
 
-            if l1:
-                l1 = l1.next
+            if l1: 
+                l1 = l1.next 
             
             if l2:
-                l2 = l2.next 
+                l2 = l2.next
 
         return dummy.next
 
+            
 
-
-
-
-
-        
