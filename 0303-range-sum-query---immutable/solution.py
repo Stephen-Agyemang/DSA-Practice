@@ -23,4 +23,3 @@ class NumArray:
 # prefix_sum = [0, 0, 0, 0, 0, 0, 0]
 
 
-
