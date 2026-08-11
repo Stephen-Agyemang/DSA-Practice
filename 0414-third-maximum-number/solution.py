@@ -1,15 +1,12 @@
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
 
-
-        if not nums:
-            return -1
-
         first = second = third = float('-inf')
 
         for num in nums:
+
             if num in (first, second, third):
-                continue 
+                continue
 
             if num > first:
                 first, second, third = num, first, second
@@ -19,17 +16,10 @@ class Solution:
 
             elif num > third:
                 third = num
-
+        
         if third == float('-inf'):
             return max(nums)
 
-        else: 
+        else:
             return third
-
-
-
-
-        ## WE have the first, second, third anology
-
-
 
