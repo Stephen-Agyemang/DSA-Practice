@@ -4,27 +4,34 @@ class Solution:
         stack = []
 
         for token in tokens:
-            if token not in ("-", "+", "/", "*"):
+            
+            if token not in ("+", "/", "-", "*"):
                 stack.append(int(token))
 
             else:
-                if token == "*":
-                    b = stack.pop()
+                if token == "+":
                     a = stack.pop()
-                    stack.append(a * b) 
-                elif token == "+":
                     b = stack.pop()
-                    a = stack.pop()
-                    stack.append(a + b)
+                    stack.append(b + a)
+
                 elif token == "-":
-                    b = stack.pop()
                     a = stack.pop()
-                    stack.append(a - b)
+                    b = stack.pop()
+                    stack.append(b - a)
+
+                elif token == "*":
+                    a = stack.pop()
+                    b = stack.pop()
+                    stack.append(b * a)
+
                 else:
-                    b = stack.pop()
                     a = stack.pop()
-                    stack.append(int(a / b))
+                    b = stack.pop()
+                    stack.append(int(b / a))
 
-        return stack[0] if stack else 0
+        if stack:
+            return stack[0]
 
+        else:
+            return 0
 
