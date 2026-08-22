@@ -17,11 +17,10 @@ class Solution:
                 else:
                     return False
 
-            if s[left].isalnum() == False: 
+            if not s[left].isalnum(): 
                 left += 1
 
-            if s[right].isalnum() == False:
+            if not s[right].isalnum():
                 right -= 1
             
-
         return True
