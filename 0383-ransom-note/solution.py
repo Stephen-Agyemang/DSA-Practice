@@ -1,26 +1,27 @@
+from collections import Counter
+
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         
-        if len(ransomNote) > len(magazine):
-            return False
+        # dct = Counter(magazine)
 
-        dct = {} 
+        # # for letter in magazine:
+        # #     if letter not in dct:
+        # #         dct[letter] = 1
 
-        for letter in magazine:
-            if letter not in dct:
-                dct[letter] = 1
+        # #     else:
+        # #         dct[letter] += 1
 
-            else:
-                dct[letter] += 1
-        
-        for letter in ransomNote:
+        # for char in ransomNote:
+        #     if dct[char] <= 0:
+        #         return False
 
-            if letter not in dct or dct[letter] == 0:
-                return False
+        #     dct[char] -= 1
 
-            else:
-                dct[letter] -= 1
+        # return True
 
-        return True
+
+        return not(Counter(ransomNote) - Counter(magazine))
+
+
             
-
