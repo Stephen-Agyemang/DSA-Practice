@@ -1,21 +1,13 @@
+from collections import Counter
 class Solution:
     def sumDivisibleByK(self, nums: List[int], k: int) -> int:
 
-        total_sum = 0
-        dct = {}
+        num_freq = Counter(nums)
 
-        for num in nums:
+        sum_freq = 0
+        for key in num_freq:
+            if num_freq[key] % k == 0:
+                sum_freq += (key * num_freq[key])
 
-            if num in dct:
-                dct[num] += 1
-            
-            else: 
-                dct[num] = 1
+        return sum_freq
 
-        for key, val in dct.items():
-            if val % k == 0:
-                total_sum += key * val
-
-        return total_sum
-
-        
