@@ -1,32 +1,32 @@
-from math import isqrt
-
-def is_prime(num):
-    if num <= 1:
-        return False
-
-    for i in range(2, isqrt(num) + 1):
-        if num % i == 0:
-            return False
-
-    return True
-    
+from collections import Counter
 
 class Solution:
-    def checkPrimeFrequency(self, nums: List[int]) -> bool:
+    def factorCounter(self, number: int) -> bool:
         
-        dct = {}
+        if number <= 1:
+            return False
+        
+        factor_count = 2
+        num = number // factor_count
 
-        for num in nums:
-            if num in dct:
-                dct[num] += 1 
+        while num > 1:
+            if number % num == 0:
+                return False
 
-            else:
-                dct[num] = 1
+            num = number // factor_count
+            factor_count += 1
 
-        for key in dct:
-            if is_prime(dct[key]):
+        return True
+
+    def checkPrimeFrequency(self, nums: List[int]) -> bool:
+
+        frequencies = Counter(nums)
+
+        for key in frequencies:
+            print(frequencies[key])
+            print(self.factorCounter(frequencies[key]))
+            if self.factorCounter(frequencies[key]):
                 return True
 
-        return False
+        return False 
 
-        
