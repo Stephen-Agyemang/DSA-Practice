@@ -7,10 +7,16 @@
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
 
+        lst = []
+
         if not root:
-            return []
+            return lst
 
-        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
-            
+        else:
+            lst.extend(self.inorderTraversal(root.left))
+            lst.append(root.val)
+            lst.extend(self.inorderTraversal(root.right))
 
-        
+
+        return lst
+
