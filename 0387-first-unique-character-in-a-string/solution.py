@@ -2,23 +2,18 @@ class Solution:
     def firstUniqChar(self, s: str) -> int:
 
         dct = {}
-        negate = -1
 
         for i, char in enumerate(s):
-            
             if char not in dct:
                 dct[char] = i
 
             else:
-                dct[char] = negate
+                dct[char] = -1
+
+        first_index = float('inf')
 
         for key in dct:
-            if dct[key] != negate:
-                return dct[key]
+            if dct[key] >= 0 and dct[key] < first_index:
+                first_index = dct[key]
 
-        return negate
-    
-
-
-
-        
+        return first_index if first_index != float('inf') else -1
