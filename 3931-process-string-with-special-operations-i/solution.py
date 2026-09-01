@@ -1,23 +1,44 @@
 class Solution:
     def processStr(self, s: str) -> str:
 
-        result = ""
+        # result = ""
 
-        if not s:
-            return result
+        # for char in s:
+
+        #     if char == "*":
+        #         result = result[:len(result) - 1]
+
+        #     elif char == "#":
+        #         res = result 
+        #         result = result + res
+
+        #     elif char == "%":
+        #         result = result[::-1]
+
+        #     else: 
+        #         result = result + char
+
+        # return result
+
+
+        # Or another better appraoch would be...
+
+
+        stack = []
 
         for char in s:
-            if char.isalpha():
-                result += char
 
-            elif char == "*" and result:
-                result = result[:-1]
+            if char == "*":
+                if stack:
+                    stack.pop()
 
             elif char == "#":
-                result += result
+                stack.extend(stack)
 
-            else:
-                result = result[::-1]
+            elif char == "%":
+                stack.reverse()
 
-        return result
-        
+            else: 
+                stack.append(char)
+
+        return "".join(stack)
