@@ -5,32 +5,45 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        
+        if not head or not head.next:
+            return head
 
-        if not head:
-            return None 
+        fast = head 
+        slow = head
+        prev = None
+        while fast and fast.next:
+            prev = slow 
+            slow = slow.next
+            fast = fast.next.next
 
-        curr = head
-        lst = []
+        prev.next = None
 
-        while curr:
-            lst.append(curr.val)
+        list1 = self.sortList(head)
+        list2 = self.sortList(slow)
+
+        return self.merger(list1, list2)
+
+
+    def merger(self, list1: Optioinal[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(0)
+        curr = dummy 
+
+        while list1 and list2:
+            if list1.val <= list2.val:
+                curr.next = list1
+                list1 = list1.next
+
+            else:
+                curr.next = list2
+                list2 = list2.next
+
             curr = curr.next
 
-        lst.sort()
-        newHead = ListNode(lst[0])
-        curr_node = newHead
+        if list1:
+            curr.next = list1
 
-        for num in lst[1:]:
-            curr_node.next = ListNode(num)
-            curr_node = curr_node.next
+        else:
+            curr.next = list2
 
-        return newHead
-
-
-
-
-
-
-
-
-        
+        return dummy.next
