@@ -1,45 +1,16 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
 
-##Approach 1    
-        # if not s and not t:
-        #     return True
+        p1 = 0
+        p2 = 0
 
-        # new_s = set(s)
-        # copy_t = ""
+        while p1 < len(s) and p2 < len(t):
+            if s[p1] != t[p2]:
+                p2 += 1
 
-        # for char in t:
-        #     if char in new_s:
-        #         copy_t += char
+            else:
+                p1 += 1
+                p2 += 1
 
-        # print(copy_t)
-        # print(new_s)
+        return p1 == len(s)
 
-        # if len(copy_t) != len(s):
-        #     return False
-
-        # for i in range(len(copy_t)):
-        #     if s[i] != copy_t[i]:
-        #         return False
-
-        # return True
-
-## Approach 2
-        if len(t) < len(s):
-            return False
-
-        pointer_s = 0
-        pointer_t = 0
-
-        while pointer_t < len(t) and pointer_s < len(s):
-            if s[pointer_s] == t[pointer_t]:
-                pointer_s += 1
-
-            pointer_t += 1
-
-        if pointer_s < len(s):
-            return False
-            
-        return True
-        
-        
