@@ -1,24 +1,50 @@
+from collections import Counter
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
         
-        dct = {}
-        num_of_operations = 0
+        # dct = Counter(nums)
+        # operations_counter = 0
 
-        for num in nums:
-            complement = k - num
+        # for num in dct.keys():
+        #     complement = k - num
 
-            if complement in dct and dct[complement] > 0:
-                num_of_operations += 1
-                dct[complement] -= 1
-            
+        #     if complement in dct and dct[complement] > 0 and dct[num] > 0:
+        #         if num == complement:
+        #             operations_counter += (dct[num] // 2)
+        #             dct[num] = 0 
+                
+        #         else:
+        #             pairs = min(dct[num], dct[complement]) 
+        #             operations_counter += pairs
+        #             dct[complement] -= pairs
+        #             dct[num] -= pairs             
+
+        # return operations_counter
+
+
+        # Or use sorting and the two pointer approach
+
+        nums.sort()
+        operations_counter = 0
+
+        left = 0 
+        right = len(nums) - 1
+
+        while left < right:
+            sumNumbers = nums[left] + nums[right] 
+
+            if sumNumbers == k:
+                operations_counter += 1
+                left += 1
+                right -= 1
+
+            elif sumNumbers < k:
+                left += 1
+
             else:
-                if num not in dct: 
-                    dct[num] = 1
+                right -= 1
 
-                else:
-                    dct[num] += 1
-
-        return num_of_operations
+        return operations_counter
 
 
 
