@@ -10,18 +10,11 @@ class Solution:
         if not root:
             return None
 
-        current = root
+        if root.val == val:
+            return root
 
-        while current:
-            if current.val == val:
-                return current
+        elif root.val > val:
+            return self.searchBST(root.left, val) 
 
-            if current.val < val:
-                current = current.right
-
-            else:
-                current = current.left
-
-        return None
-
-        
+        else:
+            return self.searchBST(root.right, val) 
