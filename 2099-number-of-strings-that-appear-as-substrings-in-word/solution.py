@@ -1,24 +1,15 @@
 class Solution:
     def numOfStrings(self, patterns: List[str], word: str) -> int:
-        # Patterns is an array of strings
-        # Word is a string
+        # Python in built (in) helps with this time complexity: O(N * M), N is the number of patterns and M is the length of word
 
-        # We are looking for number of strings in the array, patterns that exists as a substring in word.
+        count_substrings = 0 
 
+        for char in patterns:
+            if char in word:
+                count_substrings += 1
 
-        # We will have to go through Patterns
-        # If we want to make look-ups O(n) we should make the string word a set.
-        # We will first try the brute force approach, which means that at every string in patterns, we will stop and check if all it's elements are in the set we form from the string word.
-
-        count_substring = 0
-
-        for chars in patterns:
-                    
-            if chars in word:
-                count_substring += 1
+        return count_substrings
         
-        return count_substring
-
-
+        
 
         
